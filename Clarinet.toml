@@ -4,8 +4,17 @@ authors = ["Developer"]
 license = "MIT"
 description = "Chess Game Smart Contract for Stacks - Players vs Computer with Easy and Hard difficulty modes"
 requirements = []
-language = "clarity"
+cache_dir = "./.cache"
+telemetry = false
 
-[[project.contracts]]
-name = "chess-game"
+[contracts.chess-game]
 path = "contracts/chess-game.clar"
+
+[repl.analysis]
+passes = ["check_checker"]
+
+[repl.analysis.check_checker]
+strict = false
+trusted_sender = false
+trusted_caller = false
+callee_filter = false

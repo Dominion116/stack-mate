@@ -1,12 +1,38 @@
+# Dependencies
 node_modules/
+
+# Build outputs
+dist/
+build/
+.cache/
+
+# OS files
 .DS_Store
+Thumbs.db
+
+# Editor files
 *.swp
 *.swo
 *~
 .vscode/
 .idea/
-dist/
-build/
+*.code-workspace
+
+# Environment files
 .env
 .env.local
 .env.*.local
+
+# Clarinet
+costs-reports.json
+coverage-reports.json
+deployments/default.devnet-plan.yaml
+deployments/default.simnet-plan.yaml
+
+# Test output
+*.log
+coverage/
+
+# Temporary files
+*.tmp
+tmp/

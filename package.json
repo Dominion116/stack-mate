@@ -2,11 +2,11 @@
   "name": "stack-mate",
   "version": "1.0.0",
   "description": "Chess Game Smart Contract for Stacks",
-  "main": "chess-game.clar",
+  "type": "module",
   "scripts": {
-    "test": "clarinet test",
-    "check": "clarinet check",
-    "run": "clarinet run"
+    "test": "vitest run",
+    "test:watch": "vitest watch",
+    "check": "clarinet check"
   },
   "keywords": [
     "stacks",
@@ -16,5 +16,13 @@
     "smart-contract"
   ],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@stacks/transactions": "^6.0.0",
+    "vitest": "^1.0.0",
+    "vitest-environment-clarinet": "^3.0.2"
+  },
+  "dependencies": {
+    "@hirosystems/clarinet-sdk": "^3.8.1"
+  }
 }
