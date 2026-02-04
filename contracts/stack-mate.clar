@@ -380,7 +380,15 @@
 
 ;; Generate random-ish number based on block height and move count
 (define-private (pseudo-random (seed uint) (max uint))
-  (mod (+ seed (unwrap-panic (get-block-info? time (- block-height u1)))) max)
+  (let
+    (
+      (block-info (get-block-info? time block-height))
+    )
+    (mod 
+      (+ seed 
+        (default-to seed block-info))
+      max)
+  )
 )
 
 ;; Count pieces of a type on the board
