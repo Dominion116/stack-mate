@@ -19,8 +19,6 @@ Thumbs.db
 *.code-workspace
 
 # Environment files
-.env
-.env.local
 .env.*.local
 
 # Clarinet
@@ -36,3 +34,4 @@ coverage/
 # Temporary files
 *.tmp
 tmp/
+config.bat

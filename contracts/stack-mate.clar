@@ -378,17 +378,10 @@
   GAME-ACTIVE
 )
 
-;; Generate random-ish number based on block height and move count
+;; Generate random-ish number based on seed and max
+;; Simple deterministic pseudo-random for computer moves
 (define-private (pseudo-random (seed uint) (max uint))
-  (let
-    (
-      (block-info (get-block-info? time block-height))
-    )
-    (mod 
-      (+ seed 
-        (default-to seed block-info))
-      max)
-  )
+  (mod (+ (* seed u1103515245) u12345) max)
 )
 
 ;; Count pieces of a type on the board
