@@ -1,0 +1,11 @@
+[project]
+name = "stack-mate"
+authors = ["Developer"]
+license = "MIT"
+description = "Chess Game Smart Contract for Stacks - Players vs Computer with Easy and Hard difficulty modes"
+requirements = []
+language = "clarity"
+
+[[project.contracts]]
+name = "chess-game"
+path = "contracts/chess-game.clar"

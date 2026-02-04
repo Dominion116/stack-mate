@@ -1,0 +1,20 @@
+{
+  "name": "stack-mate",
+  "version": "1.0.0",
+  "description": "Chess Game Smart Contract for Stacks",
+  "main": "chess-game.clar",
+  "scripts": {
+    "test": "clarinet test",
+    "check": "clarinet check",
+    "run": "clarinet run"
+  },
+  "keywords": [
+    "stacks",
+    "clarity",
+    "chess",
+    "blockchain",
+    "smart-contract"
+  ],
+  "author": "",
+  "license": "MIT"
+}
