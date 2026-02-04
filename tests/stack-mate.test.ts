@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 
 const accounts = simnet.getAccounts();
 
-describe("Chess Game Contract", () => {
+describe("Stack Mate Contract", () => {
   it("ensures simnet is well initialized", () => {
     expect(simnet.blockHeight).toBeDefined();
   });
@@ -11,7 +11,7 @@ describe("Chess Game Contract", () => {
     const wallet1 = accounts.get("wallet_1")!;
     
     const { result } = simnet.callPublicFn(
-      "chess-game",
+      "stack-mate",
       "new-game",
       [1], // difficulty: EASY
       wallet1
@@ -24,7 +24,7 @@ describe("Chess Game Contract", () => {
     
     // Create a game first
     simnet.callPublicFn(
-      "chess-game",
+      "stack-mate",
       "new-game",
       [1],
       wallet1
@@ -32,7 +32,7 @@ describe("Chess Game Contract", () => {
 
     // Get game state
     const { result } = simnet.callReadOnlyFn(
-      "chess-game",
+      "stack-mate",
       "get-game",
       [1],
       wallet1
@@ -45,7 +45,7 @@ describe("Chess Game Contract", () => {
     const wallet1 = accounts.get("wallet_1")!;
     
     const { result } = simnet.callPublicFn(
-      "chess-game",
+      "stack-mate",
       "new-game",
       [99], // Invalid difficulty
       wallet1
@@ -58,7 +58,7 @@ describe("Chess Game Contract", () => {
     
     // Create a game
     simnet.callPublicFn(
-      "chess-game",
+      "stack-mate",
       "new-game",
       [1],
       wallet1
@@ -69,7 +69,7 @@ describe("Chess Game Contract", () => {
     // e2 = (6 * 8) + 4 = 52
     // e4 = (4 * 8) + 4 = 36
     const { result } = simnet.callPublicFn(
-      "chess-game",
+      "stack-mate",
       "make-move",
       [1, 52, 36],
       wallet1

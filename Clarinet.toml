@@ -7,8 +7,8 @@ requirements = []
 cache_dir = "./.cache"
 telemetry = false
 
-[contracts.chess-game]
-path = "contracts/chess-game.clar"
+[contracts.stack-mate]
+path = "contracts/stack-mate.clar"
 
 [repl.analysis]
 passes = ["check_checker"]
