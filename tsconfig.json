@@ -4,7 +4,7 @@
     "target": "esnext",
     "moduleResolution": "bundler",
     "allowSyntheticDefaultImports": true,
-    "types": ["vitest/globals"]
+    "types": ["vitest/globals", "@hirosystems/clarinet-sdk/vitest"]
   },
-  "include": ["tests/**/*.ts"]
+  "include": ["tests/**/*.ts", "tests/**/*.d.ts"]
 }
