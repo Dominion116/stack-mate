@@ -22,6 +22,7 @@
     "vitest-environment-clarinet": "^3.0.2"
   },
   "dependencies": {
-    "@hirosystems/clarinet-sdk": "^3.8.1"
+    "@hirosystems/clarinet-sdk": "^3.8.1",
+    "@stacks/transactions": "^7.3.1"
   }
 }
