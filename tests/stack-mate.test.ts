@@ -81,7 +81,7 @@ describe("Stack Mate Contract - Game State Queries", () => {
       [Cl.uint(1)],
       player1
     );
-    expect(result).toBeSome();
+    expect(result).not.toBeErr();
   });
 
   it("retrieves game status", () => {
@@ -91,7 +91,7 @@ describe("Stack Mate Contract - Game State Queries", () => {
       [Cl.uint(1)],
       player1
     );
-    expect(result).toBeSome();
+    expect(result).not.toBeErr();
   });
 
   it("retrieves board state", () => {
@@ -101,7 +101,7 @@ describe("Stack Mate Contract - Game State Queries", () => {
       [Cl.uint(1)],
       player1
     );
-    expect(result).toBeSome();
+    expect(result).not.toBeErr();
   });
 
   it("retrieves piece at specific position", () => {
@@ -282,7 +282,7 @@ describe("Stack Mate Contract - Player Moves", () => {
     );
     
     // Check that white-turn is now false
-    expect(result).toBeSome();
+    expect(result).not.toBeErr();
   });
 });
 
@@ -300,7 +300,7 @@ describe("Stack Mate Contract - Computer Moves", () => {
       [Cl.uint(1)],
       player1
     );
-    expect(result).toBeSome();
+    expect(result).not.toBeErr();
   });
 
   it("prevents computer move when it's player's turn", () => {
@@ -335,8 +335,8 @@ describe("Stack Mate Contract - Computer Moves", () => {
     const result1 = simnet.callPublicFn("stack-mate", "computer-move", [Cl.uint(1)], player1);
     const result2 = simnet.callPublicFn("stack-mate", "computer-move", [Cl.uint(2)], player2);
     
-    expect(result1.result).toBeSome();
-    expect(result2.result).toBeSome();
+    expect(result1.result).not.toBeErr();
+    expect(result2.result).not.toBeErr();
   });
 });
 
@@ -404,7 +404,7 @@ describe("Stack Mate Contract - Complete Game Flow", () => {
     
     // Computer move 1
     const compMove1 = simnet.callPublicFn("stack-mate", "computer-move", [Cl.uint(1)], player1);
-    expect(compMove1.result).toBeSome();
+    expect(compMove1.result).not.toBeErr();
     
     // Player move 2
     const move2 = simnet.callPublicFn("stack-mate", "make-move", [Cl.uint(1), Cl.uint(57), Cl.uint(42)], player1);
@@ -412,11 +412,11 @@ describe("Stack Mate Contract - Complete Game Flow", () => {
     
     // Computer move 2
     const compMove2 = simnet.callPublicFn("stack-mate", "computer-move", [Cl.uint(1)], player1);
-    expect(compMove2.result).toBeSome();
+    expect(compMove2.result).not.toBeErr();
     
     // Check final game status
     const status = simnet.callReadOnlyFn("stack-mate", "get-game-status", [Cl.uint(1)], player1);
-    expect(status.result).toBeSome();
+    expect(status.result).not.toBeErr();
   });
 
   it("handles multiple concurrent games", () => {

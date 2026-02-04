@@ -1,42 +1,28 @@
 /// <reference types="@hirosystems/clarinet-sdk/vitest" />
-/// <reference types="vitest" />
 
-declare global {
-  const simnet: import("@hirosystems/clarinet-sdk").SimnetProvider;
-  
-  namespace Vi {
-    interface Assertion {
-      toBeOk(expected?: any): void;
-      toBeErr(expected?: any): void;
-      toBeSome(expected?: any): void;
-      toBeNone(): void;
-      toBeBool(expected: boolean): void;
-      toBeUint(expected: number | bigint): void;
-      toBeInt(expected: number | bigint): void;
-      toBePrincipal(expected: string): void;
-      toBeAscii(expected: string): void;
-      toBeUtf8(expected: string): void;
-      toBeBuff(expected: Uint8Array): void;
-      toBeList(expected: any[]): void;
-      toBeTuple(expected: Record<string, any>): void;
-    }
-    
-    interface AsymmetricMatchersContaining {
-      toBeOk(expected?: any): any;
-      toBeErr(expected?: any): any;
-      toBeSome(expected?: any): any;
-      toBeNone(): any;
-      toBeBool(expected: boolean): any;
-      toBeUint(expected: number | bigint): any;
-      toBeInt(expected: number | bigint): any;
-      toBePrincipal(expected: string): any;
-      toBeAscii(expected: string): any;
-      toBeUtf8(expected: string): any;
-      toBeBuff(expected: Uint8Array): any;
-      toBeList(expected: any[]): any;
-      toBeTuple(expected: Record<string, any>): any;
-    }
-  }
+import type { Assertion, AsymmetricMatchersContaining } from "vitest";
+
+interface ClarityMatchers<R = unknown> {
+  toBeOk(expected?: any): R;
+  toBeErr(expected?: any): R;
+  toBeSome(expected?: any): R;
+  toBeNone(): R;
+  toBeBool(expected: boolean): R;
+  toBeUint(expected: number | bigint): R;
+  toBeInt(expected: number | bigint): R;
+  toBePrincipal(expected: string): R;
+  toBeAscii(expected: string): R;
+  toBeUtf8(expected: string): R;
+  toBeBuff(expected: Uint8Array): R;
+  toBeList(expected: any[]): R;
+  toBeTuple(expected: Record<string, any>): R;
 }
 
-export {};
+declare global {
+  const simnet: import("@hirosystems/clarinet-sdk").Simnet;
+}
+
+declare module "vitest" {
+  interface Assertion<T = any> extends ClarityMatchers<void> {}
+  interface AsymmetricMatchersContaining extends ClarityMatchers<any> {}
+}
